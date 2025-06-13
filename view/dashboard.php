@@ -1,0 +1,79 @@
+<?php
+$page = 'dashboard';
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Mindful Tech</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #powerbi-embed-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+
+        #powerbi-embed-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .top-buttons {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+        }
+
+        .top-buttons a,
+        .top-buttons button {
+            background-color: white;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .top-buttons a:hover,
+        .top-buttons button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-buttons">
+        <a href="index.php">← Back</a>
+        <button onclick="window.print()">🖨️ Print</button>
+    </div>
+
+    <div id="powerbi-embed-container">
+        <iframe title="Patterns FYP"
+            src="https://app.powerbi.com/view?r=eyJrIjoiOGI0M2I1NDEtYjhjZi00ZTYzLWFiY2MtNjFlYjQ5OTU2ODY5IiwidCI6ImNkY2JiMGUyLTlmZWEtNGY1NC04NjcwLTY3MjcwNzc5N2FkYSIsImMiOjEwfQ%3D%3D"
+            allowFullScreen="true"></iframe>
+    </div>
+</body>
+
+</html>

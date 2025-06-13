@@ -1,0 +1,130 @@
+<?php
+$page = 'home'; // Home page
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Tech | Mental Health & Technology Usage</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.php" class="logo nav-link">Mindful<span>Tech</span></a>
+            <ul class="nav-links">
+                <li><a href="index.php" class="nav-link <?php echo ($page == 'home') ? 'active' : ''; ?>">Home</a></li>
+                <li>
+                    <a href="dashboard.php"
+                        class="dashboard-button <?php echo ($page == 'dashboard') ? 'active' : ''; ?>" style="color:white;">
+                        Dashboard
+                    </a>
+                </li>
+                <li><a href="about.php" class="nav-link <?php echo ($page == 'about') ? 'active' : ''; ?>">About</a>
+                </li>
+                <li><a href="contact.php"
+                        class="nav-link <?php echo ($page == 'contact') ? 'active' : ''; ?>">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="page active">
+            <section class="hero-fullwidth">
+                <div class="hero-image"></div>
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Balancing Technology for Better Mental Health</h1>
+                        <p>Discover how technology usage can impact your mental wellbeing. Our tools help you track,
+                            analyze, and optimize your digital habits.</p>
+                        <div class="hero-buttons">
+                            <a href="dashboard.php" class="btn btn-accent nav-link" data-page="dashboard">View
+                                Dashboard</a>
+                            <a href="about.php" class="btn btn-outline nav-link" data-page="about">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Mental Wellbeing</h3>
+                    <p>Monitor your screen time and app usage to gain insights into your digital habits and understand
+                        their impact on your mental health.</p>
+                    <p>**Mental Health** refers to the psychological, emotional, and social well-being of an individual.
+                        Technology usage, especially overuse, is linked to several **mental health issues**, including
+                        depression, anxiety, and disrupted sleep patterns. This section explores the relationship
+                        between **technology habits** and **mental health outcomes**, providing insights into how
+                        overuse of technology can worsen mental well-being.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Technology Usage</h3>
+                    <p>Receive personalized recommendations to help you build healthier technology usage habits for a
+                        better work-life balance.</p>
+                    <p>**Technology Usage** explores how we interact with digital devices, including screen time, social
+                        media, and gaming. Excessive technology usage is linked to various mental health issues, but
+                        **healthy technology habits** can mitigate these effects. This section focuses on how
+                        **moderation** and **mindful usage** of technology can lead to improved mental health and
+                        overall well-being.</p>
+                </div>
+            </div>
+            <section id="sleep-hours" class="sleep-hours-section">
+                <div class="about-us-card">
+                    <div class="about-us-image">
+                        <video width="100%" height="auto" autoplay muted playsinline loop
+                            style="border: 1px solid #ccc; border-radius: 15px;">
+                            <source src="../img/Tech_Overuse_and_Mental_Health_Gaming.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="about-us-text">
+                        <h2>Sleep Hours & Gaming</h2>
+                        <p>Sleep plays a vital role in maintaining mental and emotional balance. However, extended
+                            screen
+                            exposure particularly through gaming can significantly reduce sleep duration and disrupt
+                            healthy
+                            sleep patterns.</p>
+                        <p><strong>Gaming and Sleep Impact:</strong> Late-night gaming sessions often lead to delayed
+                            bedtimes and reduced sleep quality. The stimulating nature of games and exposure to blue
+                            light
+                            can interfere with melatonin production, making it harder to fall asleep and leading to
+                            fatigue
+                            and mood issues during the day.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="about-us" class="about-us-section">
+                <div class="about-us-card">
+                    <div class="about-us-text">
+                        <h2>About Us</h2>
+                        <p>At MindfulTech, we are committed to helping individuals create healthier relationships with
+                            technology.
+                            Our mission is to empower users by providing tools and insights to monitor and optimize
+                            digital habits for better mental wellbeing.</p>
+                        <p>We believe that, with mindful usage, technology can enhance life rather than detract from
+                            it. Our platform offers resources, analytics, and personalized recommendations to help you
+                            find balance in a tech-driven world.</p>
+                        <p>We are dedicated to promoting a mindful approach to technology, ensuring that it works for
+                            you, rather than controlling your life.</p>
+                    </div>
+                    <div class="about-us-image">
+                        <img style="height:auto;padding-top:3rem;" src="../img/about-us.png" alt="About Us Image">
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MindfulTech. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
