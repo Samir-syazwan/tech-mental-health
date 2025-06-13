@@ -65,7 +65,7 @@ $page = 'dashboard';
 
 <body>
     <div class="top-buttons">
-        <a href="index.php">← Back</a>
+        <a href="../index.php">← Back</a>
         <button onclick="window.print()">🖨️ Print</button>
     </div>
 

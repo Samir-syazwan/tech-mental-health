@@ -14,9 +14,9 @@ $page = 'about'; // About page
 <body>
     <header>
         <nav>
-            <a href="index.php" class="logo nav-link">Mindful<span>Tech</span></a>
+            <a href="../index.php" class="logo nav-link">Mindful<span>Tech</span></a>
             <ul class="nav-links">
-                <li><a href="index.php" class="nav-link">Home</a></li>
+                <li><a href="../index.php" class="nav-link">Home</a></li>
                 <li>
                     <a href="dashboard.php"
                         class="dashboard-button <?php echo ($page == 'dashboard') ? 'active' : ''; ?>"

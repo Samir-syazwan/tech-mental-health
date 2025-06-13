@@ -8,7 +8,7 @@ $page = 'home'; // Home page
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mindful Tech | Mental Health & Technology Usage</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -18,14 +18,14 @@ $page = 'home'; // Home page
             <ul class="nav-links">
                 <li><a href="index.php" class="nav-link <?php echo ($page == 'home') ? 'active' : ''; ?>">Home</a></li>
                 <li>
-                    <a href="dashboard.php"
+                    <a href="view/dashboard.php"
                         class="dashboard-button <?php echo ($page == 'dashboard') ? 'active' : ''; ?>" style="color:white;">
                         Dashboard
                     </a>
                 </li>
-                <li><a href="about.php" class="nav-link <?php echo ($page == 'about') ? 'active' : ''; ?>">About</a>
+                <li><a href="view/about.php" class="nav-link <?php echo ($page == 'about') ? 'active' : ''; ?>">About</a>
                 </li>
-                <li><a href="contact.php"
+                <li><a href="view/contact.php"
                         class="nav-link <?php echo ($page == 'contact') ? 'active' : ''; ?>">Contact</a></li>
             </ul>
         </nav>
@@ -41,9 +41,9 @@ $page = 'home'; // Home page
                         <p>Discover how technology usage can impact your mental wellbeing. Our tools help you track,
                             analyze, and optimize your digital habits.</p>
                         <div class="hero-buttons">
-                            <a href="dashboard.php" class="btn btn-accent nav-link" data-page="dashboard">View
+                            <a href="view/dashboard.php" class="btn btn-accent nav-link" data-page="dashboard">View
                                 Dashboard</a>
-                            <a href="about.php" class="btn btn-outline nav-link" data-page="about">Learn
+                            <a href="view/about.php" class="btn btn-outline nav-link" data-page="about">Learn
                                 More</a>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ $page = 'home'; // Home page
                     <div class="about-us-image">
                         <video width="100%" height="auto" autoplay muted playsinline loop
                             style="border: 1px solid #ccc; border-radius: 15px;">
-                            <source src="../img/Tech_Overuse_and_Mental_Health_Gaming.mp4" type="video/mp4">
+                            <source src="img/Tech_Overuse_and_Mental_Health_Gaming.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -113,7 +113,7 @@ $page = 'home'; // Home page
                             you, rather than controlling your life.</p>
                     </div>
                     <div class="about-us-image">
-                        <img style="height:auto;padding-top:3rem;" src="../img/about-us.png" alt="About Us Image">
+                        <img style="height:auto;padding-top:3rem;" src="img/about-us.png" alt="About Us Image">
                     </div>
                 </div>
             </section>
@@ -124,7 +124,7 @@ $page = 'home'; // Home page
         <p>&copy; 2025 MindfulTech. All rights reserved.</p>
     </footer>
 
-    <script src="../script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
