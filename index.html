@@ -1,6 +1,3 @@
-<?php
-$page = 'home'; // Home page
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,19 +11,14 @@ $page = 'home'; // Home page
 <body>
     <header>
         <nav>
-            <a href="index.php" class="logo nav-link">Mindful<span>Tech</span></a>
+            <a href="index.html" class="logo nav-link">Mindful<span>Tech</span></a>
             <ul class="nav-links">
-                <li><a href="index.php" class="nav-link <?php echo ($page == 'home') ? 'active' : ''; ?>">Home</a></li>
+                <li><a href="index.html" class="nav-link active">Home</a></li>
                 <li>
-                    <a href="view/dashboard.php"
-                        class="dashboard-button <?php echo ($page == 'dashboard') ? 'active' : ''; ?>" style="color:white;">
-                        Dashboard
-                    </a>
+                    <a href="view/dashboard.html" class="dashboard-button" style="color:white;">Dashboard</a>
                 </li>
-                <li><a href="view/about.php" class="nav-link <?php echo ($page == 'about') ? 'active' : ''; ?>">About</a>
-                </li>
-                <li><a href="view/contact.php"
-                        class="nav-link <?php echo ($page == 'contact') ? 'active' : ''; ?>">Contact</a></li>
+                <li><a href="view/about.html" class="nav-link">About</a></li>
+                <li><a href="view/contact.html" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -41,10 +33,8 @@ $page = 'home'; // Home page
                         <p>Discover how technology usage can impact your mental wellbeing. Our tools help you track,
                             analyze, and optimize your digital habits.</p>
                         <div class="hero-buttons">
-                            <a href="view/dashboard.php" class="btn btn-accent nav-link" data-page="dashboard">View
-                                Dashboard</a>
-                            <a href="view/about.php" class="btn btn-outline nav-link" data-page="about">Learn
-                                More</a>
+                            <a href="view/dashboard.html" class="btn btn-accent nav-link">View Dashboard</a>
+                            <a href="view/about.html" class="btn btn-outline nav-link">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -85,16 +75,12 @@ $page = 'home'; // Home page
                     <div class="about-us-text">
                         <h2>Sleep Hours & Gaming</h2>
                         <p>Sleep plays a vital role in maintaining mental and emotional balance. However, extended
-                            screen
-                            exposure particularly through gaming can significantly reduce sleep duration and disrupt
-                            healthy
-                            sleep patterns.</p>
+                            screen exposure particularly through gaming can significantly reduce sleep duration and
+                            disrupt healthy sleep patterns.</p>
                         <p><strong>Gaming and Sleep Impact:</strong> Late-night gaming sessions often lead to delayed
                             bedtimes and reduced sleep quality. The stimulating nature of games and exposure to blue
-                            light
-                            can interfere with melatonin production, making it harder to fall asleep and leading to
-                            fatigue
-                            and mood issues during the day.</p>
+                            light can interfere with melatonin production, making it harder to fall asleep and leading to
+                            fatigue and mood issues during the day.</p>
                     </div>
                 </div>
             </section>
