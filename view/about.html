@@ -88,6 +88,32 @@
         .nav-link.active::after {
             width: 100%;
         }
+
+        @media (max-width: 768px) {
+            .contact-card {
+                flex-direction: column;
+                padding: 15px;
+                text-align: center;
+            }
+
+            .contact-card img {
+                margin-bottom: 15px;
+                width: 100px;
+                height: 100px;
+            }
+
+            .contact-card .info {
+                max-width: 100%;
+            }
+
+            .contact-card .info h2 {
+                font-size: 20px;
+            }
+
+            .contact-card .info p {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
