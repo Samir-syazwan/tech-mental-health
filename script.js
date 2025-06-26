@@ -1,71 +1,82 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Select necessary elements
+document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const navLinkItems = document.querySelectorAll('.nav-link');
     const pages = document.querySelectorAll('.page');
-    
-    // Mobile menu toggle
-    hamburger.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-    });
-    
-    // Page navigation (managing active class and page visibility)
-    navLinkItems.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Get the page to show from the data-page attribute
-            const pageToShow = this.getAttribute('data-page');
-            
-            // Hide all pages
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show selected page
-            document.getElementById(pageToShow).classList.add('active');
-            
-            // Update active nav link
-            navLinkItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            this.classList.add('active');
-            
-            // Close mobile menu if open
-            navLinks.classList.remove('active');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
 
-            // Load Power BI script if navigating to the dashboard page
-            if (pageToShow === 'dashboard') {
-                loadPowerBIScript(); // Call this function only when the dashboard page is clicked
+    // Handle mobile hamburger toggle
+    hamburger?.addEventListener('click', function (e) {
+        e.stopPropagation();
+        navLinks?.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+    });
+
+    // Close hamburger menu when clicking outside
+    document.addEventListener('click', function (e) {
+        const isClickInside = navLinks?.contains(e.target) || hamburger?.contains(e.target);
+        if (!isClickInside) {
+            navLinks?.classList.remove('active');
+            hamburger?.setAttribute('aria-expanded', false);
+        }
+    });
+
+    // SPA-style navigation
+    navLinkItems.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const pageToShow = this.getAttribute('data-page');
+
+            if (pageToShow) {
+                e.preventDefault(); // Only prevent default for internal SPA navigation
+
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+
+                // Show selected page if exists
+                const targetPage = document.getElementById(pageToShow);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+
+                // Update active link styling
+                navLinkItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+
+                // Scroll to top and close mobile menu
+                window.scrollTo(0, 0);
+                navLinks?.classList.remove('active');
+
+                // Load Power BI if needed
+                if (pageToShow === 'dashboard') {
+                    loadPowerBIScript();
+                }
             }
+            // If no data-page, it's a normal link. Let it navigate.
         });
     });
 
-    // Simple form submission (for the contact form)
+    // Contact form handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
         });
     }
-
 });
 
-// Power BI Embed Configuration
+// Power BI Embed Setup
 function embedPowerBIReport() {
-    // Configuration object for your Power BI report
     const config = {
         type: 'report',
         tokenType: models.PowerBITokenType.Embed,
-        accessToken: 'YOUR_ACCESS_TOKEN', // Replace with your token
-        embedUrl: 'YOUR_EMBED_URL',       // Replace with your embed URL
-        id: 'YOUR_REPORT_ID',             // Replace with your report ID
+        accessToken: 'YOUR_ACCESS_TOKEN', // Replace with real token
+        embedUrl: 'YOUR_EMBED_URL',       // Replace with real URL
+        id: 'YOUR_REPORT_ID',             // Replace with real report ID
         permissions: models.Permissions.All,
         settings: {
             filterPaneEnabled: true,
@@ -74,48 +85,44 @@ function embedPowerBIReport() {
         }
     };
 
-    // Get reference to the HTML element
     const embedContainer = document.getElementById('powerbi-embed-container');
-    
-    // Embed the report
     const report = powerbi.embed(embedContainer, config);
-    
-    // Add event handlers
-    report.on('loaded', function() {
-        console.log('Report loaded successfully');
-        document.querySelector('.powerbi-notice').style.display = 'none';
+
+    report.on('loaded', () => {
+        console.log('Power BI Report loaded');
+        document.querySelector('.powerbi-notice')?.style?.setProperty('display', 'none');
     });
-    
-    report.on('error', function(event) {
+
+    report.on('error', (event) => {
         console.error('Power BI error:', event.detail);
     });
 
     return report;
 }
 
-// Fullscreen functionality for Power BI
-document.getElementById('fullscreen-btn')?.addEventListener('click', function() {
+// Power BI Fullscreen
+document.getElementById('fullscreen-btn')?.addEventListener('click', () => {
     const report = powerbi.get(document.getElementById('powerbi-embed-container'));
     report.fullscreen();
 });
 
-// Print functionality for Power BI
-document.getElementById('print-btn')?.addEventListener('click', function() {
+// Power BI Print
+document.getElementById('print-btn')?.addEventListener('click', () => {
     const report = powerbi.get(document.getElementById('powerbi-embed-container'));
     report.print();
 });
 
-// Refresh functionality for Power BI
-document.getElementById('refresh-dashboard')?.addEventListener('click', function() {
+// Refresh Dashboard
+document.getElementById('refresh-dashboard')?.addEventListener('click', () => {
     location.reload();
 });
 
-// Load Power BI script and embed when ready
+// Lazy load Power BI script
 function loadPowerBIScript() {
     if (!window.powerbi) {
         const script = document.createElement('script');
         script.src = 'https://npmcdn.com/powerbi-client@2.4.7/dist/powerbi.min.js';
-        script.onload = function() {
+        script.onload = function () {
             embedPowerBIReport();
         };
         document.head.appendChild(script);

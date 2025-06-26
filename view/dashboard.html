@@ -59,10 +59,44 @@
         .top-buttons button:hover {
             background-color: #f0f0f0;
         }
+
+        .landscape-hint {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #fff;
+            color: #333;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+        }
+
+        @media screen and (orientation: portrait) and (max-width: 768px) {
+            .landscape-hint {
+                display: flex;
+            }
+
+            #powerbi-embed-container {
+                display: none;
+            }
+
+            .top-buttons {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div class="landscape-hint">
+        📱 Please rotate your device to <strong>landscape mode</strong> to view the dashboard properly.
+    </div>
     <div class="top-buttons">
         <a href="../index.html">← Back</a>
         <button onclick="window.print()">🖨️ Print</button>
@@ -74,5 +108,29 @@
             allowFullScreen="true"></iframe>
     </div>
 </body>
+
+<script>
+    function checkOrientation() {
+        const hint = document.querySelector('.landscape-hint');
+        const embed = document.getElementById('powerbi-embed-container');
+        const buttons = document.querySelector('.top-buttons');
+
+        if (window.innerHeight > window.innerWidth && window.innerWidth <= 768) {
+            // Portrait mode on mobile
+            hint.style.display = 'flex';
+            embed.style.display = 'none';
+            if (buttons) buttons.style.display = 'none';
+        } else {
+            // Landscape
+            hint.style.display = 'none';
+            embed.style.display = 'block';
+            if (buttons) buttons.style.display = 'flex';
+        }
+    }
+
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', checkOrientation);
+    document.addEventListener('DOMContentLoaded', checkOrientation);
+</script>
 
 </html>
