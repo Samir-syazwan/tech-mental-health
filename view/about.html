@@ -60,6 +60,34 @@
             font-size: 18px;
             color: #555;
         }
+
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            left: 0;
+            bottom: -4px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Keep the active state consistent with the effect */
+        .nav-link.active::after {
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -69,11 +97,11 @@
             <a href="../index.html" class="logo nav-link">Mindful<span>Tech</span></a>
             <ul class="nav-links">
                 <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li>
                     <a href="dashboard.html" class="dashboard-button" style="color:white;">Dashboard</a>
                 </li>
-                <li><a href="about.html" class="nav-link active">About</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -112,13 +140,15 @@
                     <!-- Right: Contact Information -->
                     <div class="info">
                         <h2>Contact Information</h2>
-                        <p>If you would like to reach out for further inquiries or collaboration, here's how you can contact me:</p>
-                        
+                        <p>If you would like to reach out for further inquiries or collaboration, here's how you can
+                            contact me:</p>
+
                         <p><strong>Name:</strong> Muhammad Samir Syazwan bin Jafri</p>
 
                         <p><strong>Student ID:</strong> 2022490726</p>
-                        
-                        <p><strong>Email:</strong> <a href="mailto:samirsyazwan@gmail.com">samirsyazwan@gmail.com</a></p>
+
+                        <p><strong>Email:</strong> <a href="mailto:samirsyazwan@gmail.com">samirsyazwan@gmail.com</a>
+                        </p>
 
                         <p><strong>Phone:</strong> +60 11-3706 5341</p>
                     </div>

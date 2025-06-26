@@ -6,6 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Mindful Tech</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            left: 0;
+            bottom: -4px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Keep the active state consistent with the effect */
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,11 +43,11 @@
             <a href="../index.html" class="logo nav-link">Mindful<span>Tech</span></a>
             <ul class="nav-links">
                 <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
                 <li>
                     <a href="dashboard.html" class="dashboard-button" style="color:white;">Dashboard</a>
                 </li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="contact.html" class="nav-link active">Contact</a></li>
             </ul>
         </nav>
     </header>

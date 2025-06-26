@@ -6,19 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mindful Tech | Mental Health & Technology Usage</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            left: 0;
+            bottom: -4px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Keep the active state consistent with the effect */
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo nav-link">Mindful<span>Tech</span></a>
+            <a href="index.html" class="logo">Mindful<span>Tech</span></a>
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="view/about.html" class="nav-link">About</a></li>
+                <li><a href="view/contact.html" class="nav-link">Contact</a></li>
                 <li>
                     <a href="view/dashboard.html" class="dashboard-button" style="color:white;">Dashboard</a>
                 </li>
-                <li><a href="view/about.html" class="nav-link">About</a></li>
-                <li><a href="view/contact.html" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -33,8 +62,8 @@
                         <p>Discover how technology usage can impact your mental wellbeing. Our tools help you track,
                             analyze, and optimize your digital habits.</p>
                         <div class="hero-buttons">
-                            <a href="view/dashboard.html" class="btn btn-accent nav-link">View Dashboard</a>
-                            <a href="view/about.html" class="btn btn-outline nav-link">Learn More</a>
+                            <a href="view/dashboard.html" class="btn btn-accent">View Dashboard</a>
+                            <a href="view/about.html" class="btn btn-outline">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -45,10 +74,13 @@
                     <h3>Mental Wellbeing</h3>
                     <p>Monitor your screen time and app usage to gain insights into your digital habits and understand
                         their impact on your mental health.</p>
-                    <p><strong>Mental Health</strong> refers to the psychological, emotional, and social well-being of an individual.
-                        Technology usage, especially overuse, is linked to several <strong>mental health issues</strong>, including
+                    <p><strong>Mental Health</strong> refers to the psychological, emotional, and social well-being of
+                        an individual.
+                        Technology usage, especially overuse, is linked to several <strong>mental health
+                            issues</strong>, including
                         depression, anxiety, and disrupted sleep patterns. This section explores the relationship
-                        between <strong>technology habits</strong> and <strong>mental health outcomes</strong>, providing insights into how
+                        between <strong>technology habits</strong> and <strong>mental health outcomes</strong>,
+                        providing insights into how
                         overuse of technology can worsen mental well-being.</p>
                 </div>
                 <div class="feature-card">
@@ -56,11 +88,15 @@
                     <h3>Technology Usage</h3>
                     <p>Receive personalized recommendations to help you build healthier technology usage habits for a
                         better work-life balance.</p>
-                    <p><strong>Technology Usage</strong> explores how we interact with digital devices, including screen time, social
+                    <p><strong>Technology Usage</strong> explores how we interact with digital devices, including screen
+                        time, social
                         media, and gaming. Excessive technology usage is linked to various mental health issues, but
-                        <strong>healthy technology habits</strong> can mitigate these effects. This section focuses on how
-                        <strong>moderation</strong> and <strong>mindful usage</strong> of technology can lead to improved mental health and
-                        overall well-being.</p>
+                        <strong>healthy technology habits</strong> can mitigate these effects. This section focuses on
+                        how
+                        <strong>moderation</strong> and <strong>mindful usage</strong> of technology can lead to
+                        improved mental health and
+                        overall well-being.
+                    </p>
                 </div>
             </div>
             <section id="sleep-hours" class="sleep-hours-section">
@@ -79,7 +115,8 @@
                             disrupt healthy sleep patterns.</p>
                         <p><strong>Gaming and Sleep Impact:</strong> Late-night gaming sessions often lead to delayed
                             bedtimes and reduced sleep quality. The stimulating nature of games and exposure to blue
-                            light can interfere with melatonin production, making it harder to fall asleep and leading to
+                            light can interfere with melatonin production, making it harder to fall asleep and leading
+                            to
                             fatigue and mood issues during the day.</p>
                     </div>
                 </div>
